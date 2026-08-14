@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import {
   About,
   Contact,
-  Experience,
   Feedbacks,
   Hero,
   Navbar,
@@ -44,7 +43,6 @@ function AppContent() {
         <Hero />
       </div>
       <About />
-      <Experience />
       <Tech />
       <Works />
       <GithubStats />

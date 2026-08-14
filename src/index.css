@@ -152,10 +152,8 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Custom animations */
-@keyframes gradient {
-  0%,
-  100% {
+@keyframes aboutHeadingShimmer {
+  0%, 100% {
     background-position: 0% 50%;
   }
   50% {
@@ -163,14 +161,55 @@ body {
   }
 }
 
-.animate-gradient {
-  background: linear-gradient(90deg, #ffffff, #525252, #ffffff);
-  background-size: 200% 200%;
+.animate-about-heading {
+  background: linear-gradient(
+    115deg,
+    #FFFFFF 0%,
+    #FFFFFF 55%,
+    #D8C4FB 72%,
+    #B4CDFF 88%,
+    #FFFFFF 100%
+  );
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient 3s ease infinite;
+  animation: aboutHeadingShimmer 12s ease infinite;
 }
+
+
+@keyframes accentLineExpand {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 80px;
+    opacity: 1;
+  }
+}
+
+.animate-accent-line {
+  animation: accentLineExpand 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
+@keyframes underlinePulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 0.60;
+    transform: scaleX(1.04);
+  }
+}
+
+.animate-underline-pulse {
+  animation: underlinePulse 4.5s ease-in-out infinite;
+}
+
+
 
 /* Smooth transitions */
 button,

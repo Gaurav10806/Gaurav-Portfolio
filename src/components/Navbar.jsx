@@ -10,7 +10,7 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const resumeLink =
-    "https://drive.google.com/file/d/1KjdswRn8vmr9KDs3oTgNaF_0Wr6W6NBm/view?usp=sharing";
+    "https://drive.google.com/file/d/1H5reTMkQ91C3X0r-zby3-jZnji6sBK6n/view?usp=sharing";
 
   useEffect(() => {
     const handleScroll = () => {
