@@ -153,8 +153,8 @@ const Works = () => {
   const handleScrollToNextProject = (projectName) => {
     const currentIndex = projects.findIndex((p) => p.name === projectName);
     if (currentIndex < projects.length - 1) {
-      const nextProjectElement = document.querySelector(
-        `#project-${projects[currentIndex + 1].name}`
+      const nextProjectElement = document.getElementById(
+        `project-${projects[currentIndex + 1].name}`
       );
       if (nextProjectElement) {
         nextProjectElement.scrollIntoView({ behavior: "smooth" });
@@ -168,13 +168,11 @@ const Works = () => {
         <div className="flex items-center gap-3 mb-4">
           <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
           <p className="text-gray-400 font-mono text-sm uppercase tracking-widest">
-            &gt; portfolio.projects()
+            03 / PROJECTS
           </p>
         </div>
-        <h2 className={`${styles.sectionHeadText} font-black text-white`}>
-          <span className="text-gray-400">{"<"}</span> Works{" "}
-          <span className="text-white">{"/"}</span>
-          <span className="text-gray-400">{">"}</span>
+        <h2 className={`${styles.sectionHeadText} font-black gradient-heading-text`}>
+          {"<"} Projects / {">"}
         </h2>
         <p className="text-gray-400 font-mono text-xs mt-2 opacity-70"></p>
       </motion.div>
@@ -184,11 +182,10 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-gray-300 text-[17px] max-w-3xl leading-[30px] font-mono"
         >
-          Following projects showcases my skills and experience through
-          real-world examples of my work. Each project is briefly described with
-          links to code repositories and live demos in it. It reflects my
-          ability to solve complex problems, work with different technologies,
-          and manage projects effectively.
+          A selection of projects I've built across AI engineering, full-stack
+          development, and developer-focused systems. Each project highlights
+          practical problem-solving, modern technologies, and hands-on
+          engineering.
         </motion.p>
       </div>
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
+import { styles } from "../styles";
 
 const cardData = [
   {
@@ -105,16 +106,19 @@ const About = () => {
             className="w-full"
           >
             {/* Section Label: 01 / ABOUT */}
-            <p className="text-xs font-mono tracking-widest text-gray-400/80 uppercase mb-3 select-none">
-              01 / ABOUT
-            </p>
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+              <p className="text-gray-400 font-mono text-sm uppercase tracking-widest select-none">
+                01 / ABOUT
+              </p>
+            </div>
 
-            {/* Section Heading: ~75% white with subtle lavender/blue shimmer */}
+            {/* Section Heading: Building software that solves real problems. */}
             <h2 className="text-3xl sm:text-4xl md:text-[42px] font-[900] text-white tracking-tight leading-[1.15] mb-4 animate-about-heading">
               Building software that solves real problems.
             </h2>
 
-            {/* Elegant Accent Line: 65px width, 2px height, 20% reduced glow */}
+            {/* Accent Line */}
             <motion.div
               initial={{ width: 0, opacity: 0 }}
               whileInView={{ width: 65, opacity: 1 }}
@@ -139,11 +143,9 @@ const About = () => {
               <strong className="font-bold text-white">
                 scalable full-stack applications
               </strong>{" "}
-              that solve real-world problems.
-            </p>
-            <p>
-              I enjoy designing intuitive user experiences, building reliable
-              backend systems, and exploring technologies like{" "}
+              that solve real-world problems. I enjoy designing intuitive user
+              experiences, building reliable backend systems, and exploring
+              technologies like{" "}
               <strong className="font-bold text-white">workflow automation</strong>,{" "}
               <strong className="font-bold text-white">semantic search</strong>, and
               modern AI. I focus on writing{" "}

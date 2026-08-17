@@ -152,29 +152,34 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-@keyframes aboutHeadingShimmer {
-  0%, 100% {
+@keyframes gradientRotate {
+  0% {
     background-position: 0% 50%;
   }
   50% {
     background-position: 100% 50%;
   }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.animate-about-heading {
-  background: linear-gradient(
-    115deg,
-    #FFFFFF 0%,
-    #FFFFFF 55%,
-    #D8C4FB 72%,
-    #B4CDFF 88%,
-    #FFFFFF 100%
-  );
-  background-size: 200% 100%;
+.gradient-heading-text {
+  background: linear-gradient(90deg, #A855F7 0%, #3B82F6 50%, #A855F7 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: aboutHeadingShimmer 12s ease infinite;
+  animation: gradientRotate 6s ease-in-out infinite;
+}
+
+.animate-about-heading {
+  background: linear-gradient(90deg, #A855F7 0%, #3B82F6 50%, #A855F7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientRotate 6s ease-in-out infinite;
 }
 
 

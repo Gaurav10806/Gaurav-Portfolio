@@ -4,7 +4,7 @@ import emailjs from "@emailjs/browser";
 
 import { styles } from "../styles";
 import { SectionWrapper } from "../hoc";
-import { slideIn } from "../utils/motion";
+import { slideIn, textVariant } from "../utils/motion";
 import ContactTerminal from "./canvas/ContactTerminal";
 
 const Contact = () => {
@@ -72,16 +72,16 @@ const Contact = () => {
 
     emailjs
       .send(
-        "service_j14d0fv",
-        "template_30fnly8",
+        "service_kedtpk9",
+        "template_q72srpa",
         {
           from_name: form.name,
-          to_name: "Divyanshu Mishra",
+          to_name: "Gaurav Soni",
           from_email: form.email,
-          to_email: "dvbeast465@gmail.com",
+          to_email: "gaurav10806@gmail.com",
           message: form.message,
         },
-        "4DsVrmRmczHS3ChaA"
+        "nHcavcb-9xx9Pf9Ne"
       )
       .then(
         () => {
@@ -108,16 +108,16 @@ const Contact = () => {
     return new Promise((resolve, reject) => {
       emailjs
         .send(
-          "service_j14d0fv",
-          "template_30fnly8",
+          "service_kedtpk9",
+          "template_q72srpa",
           {
             from_name: terminalFormData.name,
-            to_name: "Divyanshu Mishra",
+            to_name: "Gaurav Soni",
             from_email: terminalFormData.email,
-            to_email: "dvbeast465@gmail.com",
+            to_email: "gaurav10806@gmail.com",
             message: terminalFormData.message,
           },
-          "4DsVrmRmczHS3ChaA"
+          "nHcavcb-9xx9Pf9Ne"
         )
         .then(
           () => {
@@ -131,17 +131,28 @@ const Contact = () => {
   };
 
   return (
-    <div className="grid w-full grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-6 lg:gap-8">
-      <motion.div
-        variants={slideIn("left", "tween", 0.2, 1)}
-        initial="show"
-        animate="show"
-        className="w-full h-full bg-black/80 border border-white/20 p-5 sm:p-8 rounded-lg backdrop-blur-sm"
-      >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={`${styles.sectionHeadText} mb-8`}>Contact.</h3>
+    <div className="w-full flex flex-col">
+      {/* Contact Section Header */}
+      <motion.div variants={textVariant()} className="mb-10 text-left">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+          <p className="text-gray-400 font-mono text-sm uppercase tracking-widest select-none">
+            05 / CONTACT
+          </p>
+        </div>
+        <h2 className={`${styles.sectionHeadText} font-black gradient-heading-text`}>
+          {"<"} Contact / {">"}
+        </h2>
+      </motion.div>
 
-        <form
+      <div className="grid w-full grid-cols-1 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] gap-6 lg:gap-8">
+        <motion.div
+          variants={slideIn("left", "tween", 0.2, 1)}
+          initial="show"
+          animate="show"
+          className="w-full h-full bg-black/80 border border-white/20 p-5 sm:p-8 rounded-lg backdrop-blur-sm"
+        >
+          <form
           ref={formRef}
           onSubmit={handleSubmit}
           className="flex flex-col gap-6"
@@ -233,113 +244,17 @@ const Contact = () => {
         </form>
       </motion.div>
 
-      <div className="w-full">
-        <motion.div
-          variants={slideIn("right", "tween", 0.2, 1)}
-          initial="show"
-          animate="show"
-          className="hidden"
-        >
-          <div className="w-full h-full relative group rounded-lg overflow-hidden border border-white border-opacity-30 group-hover:border-opacity-100 bg-black backdrop-blur-sm transition-all duration-300">
-            <div className="absolute -inset-1 bg-gradient-to-r from-gray-400 to-gray-600 rounded-lg blur opacity-0 group-hover:opacity-50 transition duration-500 -z-10" />
-
-            <div className="w-full h-full flex items-center justify-center">
-              <svg
-                viewBox="0 0 200 200"
-                className="w-4/5 h-4/5 filter drop-shadow-lg"
-              >
-                <defs>
-                  <radialGradient id="earthGradient">
-                    <stop offset="0%" stopColor="#ffffff" />
-                    <stop offset="50%" stopColor="#9ca3af" />
-                    <stop offset="100%" stopColor="#1a1a1a" />
-                  </radialGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-
-                <motion.circle
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  fill="url(#earthGradient)"
-                  filter="url(#glow)"
-                  animate={{
-                    opacity: [0.8, 1, 0.8],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                  }}
-                />
-
-                <motion.circle
-                  cx="100"
-                  cy="100"
-                  r="85"
-                  fill="none"
-                  stroke="#ffffff"
-                  strokeWidth="2"
-                  opacity="0.5"
-                  animate={{
-                    r: [85, 95, 85],
-                    opacity: [0.5, 0.2, 0.5],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                  }}
-                />
-
-                <motion.circle
-                  cx="100"
-                  cy="100"
-                  r="90"
-                  fill="none"
-                  stroke="#d1d5db"
-                  strokeWidth="1"
-                  opacity="0.3"
-                  animate={{
-                    r: [90, 100, 90],
-                    opacity: [0.3, 0.1, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                  }}
-                />
-
-                <circle cx="130" cy="70" r="3" fill="#ffffff" opacity="0.7" />
-                <circle cx="60" cy="120" r="2" fill="#d1d5db" opacity="0.7" />
-                <circle cx="100" cy="50" r="2.5" fill="#ffffff" opacity="0.6" />
-              </svg>
-            </div>
-
-            <div className="absolute top-4 left-4 text-white font-mono text-xs opacity-70">
-              &gt; earth.ping()
-            </div>
-            <div className="absolute bottom-4 right-4 text-gray-300 font-mono text-xs opacity-70">
-              Status: [<span className="text-green-400 animate-pulse">on</span>]
-              Connected
-            </div>
-          </div>
-        </motion.div>
-
-        <motion.div
-          variants={slideIn("up", "tween", 0.3, 1)}
-          initial="show"
-          animate="show"
-          className="w-full h-[420px] sm:h-[520px] lg:h-full lg:min-h-[640px]"
-        >
-          <ContactTerminal onSubmit={handleTerminalSubmit} isMobile={false} />
-        </motion.div>
-      </div>
+      {/* Right Column: Contact Terminal (Beside Contact Form on Desktop) */}
+      <motion.div
+        variants={slideIn("right", "tween", 0.3, 1)}
+        initial="show"
+        animate="show"
+        className="w-full h-[420px] sm:h-[520px] lg:h-full lg:min-h-[580px]"
+      >
+        <ContactTerminal onSubmit={handleTerminalSubmit} isMobile={false} />
+      </motion.div>
     </div>
+  </div>
   );
 };
 

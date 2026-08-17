@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "../hoc";
-import { techSkills } from "../constants/skillsData.jsx";
+import { styles } from "../styles";
+import { textVariant } from "../utils/motion";
+import { coreSkills, devSkills, toolSkills } from "../constants/skillsData.jsx";
 
-const SkillCard = ({ name, icon, customIcon, index }) => {
-  const CustomIconComponent = customIcon;
-
+const SkillCard = ({ name, icon: IconComponent, color, index }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 18 }}
@@ -16,12 +16,12 @@ const SkillCard = ({ name, icon, customIcon, index }) => {
         delay: index * 0.04,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative flex flex-col items-center justify-between pt-5 pb-6 px-4 rounded-[18px] sm:rounded-[20px] border border-white/10 bg-[#0F1117]/70 backdrop-blur-xl min-h-[155px] sm:min-h-[168px] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:border-purple-500/40 hover:shadow-[0_14px_36px_rgba(139,92,246,0.22)] overflow-hidden"
+      className="group relative flex flex-col items-center justify-between pt-5 pb-6 px-4 rounded-[18px] sm:rounded-[20px] border border-white/10 bg-[#0F1117]/70 backdrop-blur-xl min-h-[155px] sm:min-h-[168px] w-[135px] sm:w-[155px] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:border-purple-500/40 hover:shadow-[0_14px_36px_rgba(139,92,246,0.22)] overflow-hidden flex-shrink-0"
     >
       {/* Soft Purple Glow on Hover */}
       <div className="absolute inset-0 rounded-[18px] sm:rounded-[20px] bg-gradient-to-b from-purple-500/[0.04] to-blue-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
-      {/* Floating Async Icon: 2-3px up/down over 4-4.5s */}
+      {/* Floating Container */}
       <motion.div
         animate={{
           y: [0, index % 2 === 0 ? -3 : 3, 0],
@@ -32,20 +32,18 @@ const SkillCard = ({ name, icon, customIcon, index }) => {
           repeatType: "reverse",
           ease: "easeInOut",
         }}
-        className="relative z-10 w-14 h-14 sm:w-14 sm:h-14 flex items-center justify-center transition-transform duration-300"
+        className="relative z-10 w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
       >
-        {icon ? (
-          <img
-            src={icon}
-            alt={name}
-            className="w-14 h-14 sm:w-14 sm:h-14 object-contain filter brightness-100 group-hover:brightness-125 transition-all duration-300"
+        {/* Fixed Centered Icon Container */}
+        <div className="w-12 h-12 flex items-center justify-center transition-all duration-300">
+          <IconComponent
+            className="w-[42px] h-[42px] object-contain transition-transform duration-300 group-hover:brightness-125"
+            style={{ color: color }}
           />
-        ) : (
-          <CustomIconComponent />
-        )}
+        </div>
       </motion.div>
 
-      {/* Technology Name: Semi-bold (font-semibold = 600), brighter (#ECECEC) */}
+      {/* Technology Name */}
       <span className="relative z-10 text-[#ECECEC] group-hover:text-white text-[14.5px] sm:text-[15.5px] font-mono font-semibold text-center tracking-tight transition-colors duration-300 mt-2">
         {name}
       </span>
@@ -56,33 +54,43 @@ const SkillCard = ({ name, icon, customIcon, index }) => {
   );
 };
 
+const TechGroup = ({ title, skills, startIndex }) => (
+  <div className="flex flex-col items-center w-full">
+    {/* Category Subheading */}
+    <h3 className="text-[15px] sm:text-base font-mono font-bold tracking-[0.2em] text-gray-400/80 uppercase mb-5 select-none text-center">
+      // {title}
+    </h3>
+
+    {/* Centered Row of Skill Cards */}
+    <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 w-full max-w-[1250px] mx-auto">
+      {skills.map((tech, idx) => (
+        <SkillCard key={tech.name} index={startIndex + idx} {...tech} />
+      ))}
+    </div>
+  </div>
+);
+
 const Tech = () => {
   return (
     <div className="relative w-full">
       {/* Section Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="mb-10 text-left"
-      >
-        {/* Monospace label */}
-        <p className="text-xs font-mono tracking-widest text-gray-400/80 uppercase mb-2 select-none">
-          02 / TECH STACK
-        </p>
-
-        {/* Heading with Hero Purple-Blue Animated Gradient */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight animate-about-heading">
-          Skills
+      <motion.div variants={textVariant()} className="mb-10 text-left">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-1 h-8 bg-gradient-to-b from-gray-400 to-gray-600" />
+          <p className="text-gray-400 font-mono text-sm uppercase tracking-widest select-none">
+            02 / SKILLS
+          </p>
+        </div>
+        <h2 className={`${styles.sectionHeadText} font-black gradient-heading-text`}>
+          {"<"} Skills / {">"}
         </h2>
       </motion.div>
 
-      {/* Grid: 2 rows x 7 columns on desktop */}
-      <div className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-7 gap-x-4 sm:gap-x-5 gap-y-6 sm:gap-y-[26px] max-w-[1400px] mx-auto">
-        {techSkills.map((tech, index) => (
-          <SkillCard key={tech.name} index={index} {...tech} />
-        ))}
+      {/* 3 Centered Groups Stacked Vertically */}
+      <div className="flex flex-col items-center gap-12 sm:gap-14 w-full">
+        <TechGroup title="CORE" skills={coreSkills} startIndex={0} />
+        <TechGroup title="DEVELOPMENT" skills={devSkills} startIndex={4} />
+        <TechGroup title="DATA & TOOLS" skills={toolSkills} startIndex={8} />
       </div>
     </div>
   );

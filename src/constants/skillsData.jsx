@@ -1,61 +1,39 @@
-import React from "react";
 import {
-  reactjs,
-  javascript,
-  nodejs,
-  python,
-  mongodb,
-  html,
-  css,
-  tailwind,
-  docker,
-  git,
-} from "../assets";
+  SiPython,
+  SiJavascript,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiDjango,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiTailwindcss,
+  SiDocker,
+  SiGit,
+} from "react-icons/si";
+import { FaJava, FaDatabase } from "react-icons/fa6";
 
-// Clean, high-quality, transparent official SVG icons normalized to 56px (w-14 h-14)
-const PostgresqlSVG = () => (
-  <svg className="w-14 h-14 object-contain" viewBox="0 0 128 128">
-    <path fill="#336791" d="M63.882 10.02c-29.43 0-53.284 23.854-53.284 53.285 0 26.6 19.488 48.653 44.978 52.656V78.71H41.97v-15.4h13.606v-11.75c0-13.367 7.95-20.735 20.126-20.735 5.83 0 11.93.104 11.93.104v13.11h-6.72c-6.623 0-8.687 4.11-8.687 8.327v10.344h14.78l-2.363 15.4H72.225v37.25C97.715 111.958 117.168 89.905 117.168 63.305c0-29.431-23.854-53.285-53.286-53.285z" opacity="0"/>
-    <path fill="#336791" d="M68.5 19.5c-20.2 0-37.4 13.8-42.3 32.7C20.3 75.3 36.7 99 62.5 101.8V79.2H50.1V64.8h12.4V53.6c0-12.3 7.3-19.1 18.5-19.1 5.4 0 11 .8 11 .8v12.1h-6.2c-6.1 0-8 3.8-8 7.7V64.8h13.6l-2.2 14.4H77.8v22.2c22.6-3.2 40-22.5 40-45.9 0-25.7-21.7-41.6-49.3-41.6z"/>
-    <path fill="#336791" d="M67.8 28.5c-15.5 0-28.7 10.6-32.5 25.1-4.5 17.8 8.1 36 27.9 38.1V74.2H53.5V62.8h9.7V53.6c0-9.7 5.7-15 14.5-15 4.2 0 8.6.6 8.6.6v9.5h-4.8c-4.8 0-6.3 3-6.3 6V62.8h10.7l-1.7 11.4H75.2v17.4c17.7-2.5 31.3-17.6 31.3-36 0-20.2-17-32.7-38.7-32.7z" opacity="0.3"/>
-  </svg>
-);
+// 3 Centered Skill Groups with official brand colors
+export const coreSkills = [
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+  { name: "Java", icon: FaJava, color: "#E76F00" },
+  { name: "SQL", icon: FaDatabase, color: "#38BDF8" },
+];
 
-const ExpressIcon = () => (
-  <svg className="w-14 h-14 object-contain text-[#F0F0F0]" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zm-15.5 0c0-1.933 1.567-3.5 3.5-3.5s3.5 1.567 3.5 3.5-1.567 3.5-3.5 3.5-3.5-1.567-3.5-3.5zm2 0c0 .828.672 1.5 1.5 1.5s1.5-.672 1.5-1.5-.672-1.5-1.5-1.5-1.5.672-1.5 1.5z"/>
-  </svg>
-);
+export const devSkills = [
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "Express.js", icon: SiExpress, color: "#F0F0F0" },
+  { name: "Django", icon: SiDjango, color: "#44B78B" },
+];
 
-const DjangoSVG = () => (
-  <svg className="w-14 h-14 object-contain" viewBox="0 0 24 24" fill="none">
-    <path fill="#44B78B" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.84 15.5h-1.93v-1.78c-.52.7-1.32 1.13-2.26 1.13-1.8 0-3.05-1.38-3.05-3.66 0-2.32 1.28-3.69 3.09-3.69.91 0 1.68.41 2.19 1.07V6.5h1.96v11zm-4.14-2.58c1.02 0 1.77-.79 1.77-1.97 0-1.17-.75-1.95-1.77-1.95-1.01 0-1.76.78-1.76 1.95 0 1.18.75 1.97 1.76 1.97z"/>
-  </svg>
-);
-
-const JavaSVG = () => (
-  <svg className="w-14 h-14 object-contain" viewBox="0 0 24 24" fill="none">
-    <path fill="#5382A1" d="M8.851 18.56s-.917.534.653.714c1.902.218 2.87.177 4.908-.215 0 0 .58.337.892.653-2.64.675-6.6.61-8.542-.178 0 0-.256-.475 2.089-.974m-.226-2.585s-1.077.587.498.718c1.947.16 3.659.13 5.92-.379 0 0 .346.402.663.606-3.25.59-7.468.423-9.155-.386 0 0-.077-.478 2.074-.559m8.287-3.66s.783.844.025 1.573c-1.397 1.341-3.65 1.83-5.748 1.954-2.822.167-5.703-.13-6.425-.974-.356-.416.035-.873.543-1.087 1.092-.46 2.89-.176 2.89-.176s-.66-.464-.993-.822c-2.308.273-3.673 1.134-3.155 1.97.643 1.036 3.538 1.554 6.839 1.408 2.502-.11 5.342-.71 6.88-2.128.775-.714.475-1.46-.856-1.718"/>
-    <path fill="#E76F00" d="M11.834 8.784c0 0-1.85-.733-.509-2.274 1.341-1.541 1.76-2.937 1.76-2.937s-1.85.343-3.19.988C8.555 5.206 8.92 7.028 9.932 8.358c.708.932 1.902.426 1.902.426m2.28 9.176c-.958.309-1.928.539-2.909.686.993.208 2.378.149 3.559-.06 0 0 .285.297.616.574-1.916.486-4.526.475-6.223.119-.486-.102-1.018-.273-1.258-.559.08.02.164.037.248.053 2.146.402 5.093.07 6.443-.314 0 0-.256-.273-.476-.5m-3.834-11.758c0 0 1.258-1.541.974-2.617 0 0-1.258.917-1.408 2.015.168.179.309.38.434.602"/>
-  </svg>
-);
-
-export const techSkills = [
-  // Row 1
-  { name: "React", icon: reactjs },
-  { name: "JavaScript", icon: javascript },
-  { name: "Node.js", icon: nodejs },
-  { name: "Express.js", customIcon: ExpressIcon },
-  { name: "Django", customIcon: DjangoSVG },
-  { name: "Python", icon: python },
-  { name: "Java", customIcon: JavaSVG },
-
-  // Row 2
-  { name: "MongoDB", icon: mongodb },
-  { name: "PostgreSQL", customIcon: PostgresqlSVG },
-  { name: "HTML5", icon: html },
-  { name: "CSS3", icon: css },
-  { name: "Tailwind CSS", icon: tailwind },
-  { name: "Docker", icon: docker },
-  { name: "Git", icon: git },
+export const toolSkills = [
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "#4169E1" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
 ];

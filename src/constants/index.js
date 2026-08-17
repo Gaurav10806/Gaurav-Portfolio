@@ -24,16 +24,25 @@ import {
   uber,
   farmer,
   theSocial,
+  draftyard,
+  flowzen,
+  parallelGuardian,
+  pulsechain,
+  smartcity,
 } from "../assets";
 
 const navLinks = [
+  {
+    id: "home",
+    title: "Home",
+  },
   {
     id: "about",
     title: "About",
   },
   {
     id: "work",
-    title: "Work",
+    title: "Projects",
   },
   {
     id: "github",
@@ -150,136 +159,106 @@ const testimonials = [
 
 const projects = [
   {
-    name: "AI Farmer Assistance Platform",
+    name: "DraftYard",
     description: `
-An AI-driven platform combining RAG, geospatial intelligence & computer vision for farmers:
+Led a 3-member team in building an AI-powered platform to revive, manage, and collaborate on unfinished software projects.
 
-- Built RAG system using LangChain + vector DB (~90% relevant responses)
-- Developed plant disease detection model (~88% accuracy, ~1.2s latency)
-- Added Gemini + Datagram API for AI voice assistant functionality
-- Implemented India map interface for crop suggestions & market insights
-- Included real-time community chat for farmers & experts
+• Built a scalable full-stack system using React.js, Node.js, Express.js, MongoDB, Django, and Python-based ML services with GitHub Repository Import, Google OAuth 2.0, RBAC, and secure REST APIs.
+• Integrated RAG, Semantic Search, and Sentence Transformers to deliver contextual project insights and intelligent project matching.
+• Developed AI-driven project intelligence including project health analysis, revival insights, and semantic project matching.
 `,
     tags: [
-      { name: "NextJs", color: "blue-text-gradient" },
-      { name: "LangChain", color: "green-text-gradient" },
-      { name: "Vector DB", color: "pink-text-gradient" },
-      { name: "Python CV", color: "blue-text-gradient" },
-    ],
-    image: farmer,
-    source_code_link: "https://github.com/Divyanshu-Mishra9620/Agri-Ai",
-    deployed_link: "https://kris-hinova.vercel.app/",
-  },
-  {
-    name: "TheSocial",
-    description: `
-Built a production grade messaging platform, handling scalable communication using modern web technologies.
-- Implemented real time messaging using Socket.IO with event driven architecture
-- Designed optimistic UI updates for instant message delivery experience
-- Integrated Redis for caching recent messages, rate limiting, and Pub/Sub for multi server scalability
-- Used BullMQ for asynchronous message processing to ensure non blocking performance
-- Designed efficient MongoDB schema with indexing and ULID based message ordering
-- Built a complete message lifecycle system from creation to persistence with high reliability
-- Implemented deduplication logic to prevent duplicate messages across socket events and API responses
-`,
-    tags: [
-      { name: "MongoDB", color: "green-text-gradient" },
-      { name: "BullMQ", color: "blue-text-gradient" },
-      { name: "Socket.IO", color: "pink-text-gradient" },
-      { name: "Redis", color: "green-text-gradient" },
-      { name: "WebSockets", color: "blue-text-gradient" },
-      { name: "NextJs", color: "pink-text-gradient" },
-    ],
-    image: theSocial,
-    source_code_link: "https://github.com/Divyanshu-Mishra9620/The-Social",
-    deployed_link: "https://thesocialapp.xyz",
-  },
-  {
-    name: "E-Commerce",
-    description: `
-A scalable e-commerce platform optimized for large product catalogs and fast performance:
-
-- Architected a store supporting 19,000+ products using SSR + caching
-- Reduced TTFB by 40% through optimized PostgreSQL queries
-- Designed APIs reducing product search latency from 650ms to 120ms
-- Integrated Auth.js + JWT for secure authentication and session handling
-- Added Razorpay payment gateway with webhook validation
-`,
-    tags: [
-      { name: "MERN", color: "blue-text-gradient" },
-      { name: "MongoDB", color: "green-text-gradient" },
-      { name: "NextJs", color: "pink-text-gradient" },
-    ],
-    image: ecommerce,
-    source_code_link:
-      "https://github.com/Divyanshu-Mishra9620/E-Commerce-frontend",
-    deployed_link: "https://e-commerce-frontend-murex-eta.vercel.app/",
-  },
-  {
-    name: "Uber-Style Ride Booking System",
-    description: `
-A real-time ride booking platform enabling live driver-customer interactions:
-
-- Implemented instant ride requests using Socket.IO
-- Built live location tracking with Leaflet maps (pickup & drop points)
-- Developed driver matching algorithm with ride status transitions
-- Added authentication, ride history & driver availability features
-- Designed a responsive, intuitive interface for customers & drivers
-`,
-    tags: [
-      { name: "NextJs", color: "blue-text-gradient" },
+      { name: "React.js", color: "blue-text-gradient" },
       { name: "Node.js", color: "green-text-gradient" },
-      { name: "Socket.IO", color: "pink-text-gradient" },
-      { name: "Leaflet", color: "blue-text-gradient" },
-    ],
-    image: uber,
-    source_code_link: "https://github.com/Divyanshu-Mishra9620/uber-b",
-    deployed_link: "https://uber-b-4vyh.vercel.app/",
-  },
-
-  {
-    name: "AI-Health-Assistant",
-    description: `
-AI-powered health assistant providing instant diagnosis and structured recommendations:
-
-- Built with Next.js, Django, PostgreSQL, LangChain & TypeScript
-- Implemented RAG workflow reducing hallucinations by ~30%
-- Added symptom extraction pipeline + vector DB search
-- Integrated JWT authentication & secure rate-limited API routes
-- Enabled image upload & chat-based health interaction
-`,
-    tags: [
-      { name: "TypeScript", color: "blue-text-gradient" },
-      { name: "Python", color: "green-text-gradient" },
+      { name: "MongoDB", color: "green-text-gradient" },
       { name: "Django", color: "pink-text-gradient" },
-      { name: "PostgreSQL", color: "blue-text-gradient" },
+      { name: "Express", color: "blue-text-gradient" },
     ],
-    image: healthAssistant,
-    source_code_link:
-      "https://github.com/Divyanshu-Mishra9620/Health-Assistant",
-    deployed_link: "https://health-assistant-omega.vercel.app/",
+    image: draftyard,
+    source_code_link: "https://github.com/Gaurav10806/DraftYard",
+    deployed_link: "https://draft-yard.vercel.app/",
   },
-
   {
-    name: "Chatty (Real-Time Chat App)",
+    name: "FlowZen",
     description: `
-A real-time messaging platform built with Socket.IO and modern UI components:
+Developed a visual AI-powered workflow automation platform with a drag-and-drop workflow builder and graph-based workflow modeling.
 
-- Developed using the MERN stack (MongoDB, Express, React, Node.js)
-- Implemented instant messaging with reliable WebSocket channels
-- Added authentication, protected routes & persistent chat storage
-- Built responsive UI with Tailwind CSS
-- Integrated typing indicators, message status & smooth chat UX
+• Built conditional branching, reusable workflow templates, and configurable AI agent nodes for complex automation pipelines.
+• Engineered the backend using Django, Django REST Framework, PostgreSQL, Celery, and Redis with asynchronous task execution.
+• Implemented REST APIs, JWT authentication, dependency validation, real-time workflow execution monitoring, and a modular workflow execution engine.
 `,
     tags: [
-      { name: "MERN", color: "blue-text-gradient" },
-      { name: "tailwind", color: "green-text-gradient" },
-      { name: "socket.io", color: "pink-text-gradient" },
+      { name: "React.js", color: "blue-text-gradient" },
+      { name: "Django", color: "green-text-gradient" },
+      { name: "PostgreSQL", color: "blue-text-gradient" },
+      { name: "Celery", color: "pink-text-gradient" },
+      { name: "Redis", color: "green-text-gradient" },
     ],
-    image: chatty,
+    image: flowzen,
+    source_code_link: "https://github.com/Gaurav10806/FlowZen",
+    deployed_link:
+      "https://drive.google.com/file/d/1b4kNyMe7lBpif6rp5mtRWnRtwBNkEFAj/view?usp=sharing",
+  },
+  {
+    name: "Parallel Guardian AI",
+    description: `
+AI-powered student productivity platform that predicts deadline risks, prioritizes tasks, and generates recovery plans.
+
+• Built AI Daily Brief, Deadline Guardian, and AI Priority Queue for deadline-risk detection, task prioritization, workload analysis, and actionable recommendations.
+• Implemented Smart Task Capture, Rescue Planner, Adaptive Focus Window, Productivity Analytics, and AI Reflection Journal for intelligent productivity and recovery workflows.
+• Integrated Google Gemini for AI reasoning and generation with secure authentication, interactive dashboards, and productivity visualizations.
+`,
+    tags: [
+      { name: "React.js", color: "blue-text-gradient" },
+      { name: "Supabase", color: "green-text-gradient" },
+      { name: "Tailwind CSS", color: "pink-text-gradient" },
+      { name: "Google Gemini", color: "blue-text-gradient" },
+      { name: "Recharts", color: "green-text-gradient" },
+    ],
+    image: parallelGuardian,
+    source_code_link: "https://github.com/Gaurav10806/parallel-guardian-ai",
+    deployed_link: "https://parallel-guardian-ai.vercel.app/",
+  },
+  {
+    name: "PulseChain AI",
+    description: `
+An AI-powered decision-intelligence platform that models cascading consequences of crisis incidents and recommends high-leverage interventions.
+
+• Built an interactive cascade reasoning graph with probability, impact, time-to-impact, AI reasoning, and critical turning-point analysis.
+• Integrated Google Gemini 2.5 Flash with structured JSON responses to generate incident analysis, risk assessments, recommendations, and executive summaries.
+• Developed an Intervention Lab, six-step scenario builder, decision reports, risk matrix visualization, mission history, and mock-analysis fallback for reliable demonstrations.
+`,
+    tags: [
+      { name: "React", color: "blue-text-gradient" },
+      { name: "TypeScript", color: "green-text-gradient" },
+      { name: "TanStack Start", color: "pink-text-gradient" },
+      { name: "Google Gemini", color: "blue-text-gradient" },
+      { name: "Recharts", color: "green-text-gradient" },
+    ],
+    image: pulsechain,
+    source_code_link: "https://github.com/Gaurav10806/PulseChain-AI",
+    deployed_link: "https://pulse-chain-ai-rust.vercel.app/",
+  },
+  {
+    name: "Smart City Management System",
+    description: `
+A Java-based smart-city complaint management system with role-based User, Officer, and Admin workflows, MySQL/JDBC integration, analytics, reporting, and custom data structures.
+
+• Built separate User, Officer, and Admin workflows for complaint registration, tracking, assignment, status management, evidence handling, and administration.
+• Integrated Java with MySQL using JDBC, SQL, and stored procedures for complaints, users, officers, evidence, analytics, and reporting.
+• Implemented custom Queue, Stack, Binary Search Tree, Linked List, Hash Map, Hash Table, Graph, and Task Queue structures for complaint management, workload analysis, searching, and reporting.
+`,
+    tags: [
+      { name: "Java", color: "blue-text-gradient" },
+      { name: "MySQL", color: "green-text-gradient" },
+      { name: "JDBC", color: "pink-text-gradient" },
+      { name: "DSA", color: "blue-text-gradient" },
+      { name: "SQL", color: "green-text-gradient" },
+    ],
+    image: smartcity,
     source_code_link:
-      "https://github.com/Divyanshu-Mishra9620/Fullstack-chat-app",
-    deployed_link: "https://fullstack-chat-app-1-57jj.onrender.com",
+      "https://github.com/Gaurav10806/Smart_City_Management_System",
+    deployed_link: null,
   },
 ];
 

@@ -41,6 +41,11 @@ import chatty from "./chatty.png";
 import uber from "./uber.png";
 import farmer from "./farmer.png";
 import theSocial from "./TheSocial.png";
+import draftyard from "./draftyard.png";
+import flowzen from "./flowzen.png";
+import parallelGuardian from "./parallelGuardian.png";
+import pulsechain from "./pulsechain.png";
+import smartcity from "./smartcity.png";
 
 export {
   arrow,
@@ -83,4 +88,9 @@ export {
   uber,
   farmer,
   theSocial,
+  draftyard,
+  flowzen,
+  parallelGuardian,
+  pulsechain,
+  smartcity,
 };

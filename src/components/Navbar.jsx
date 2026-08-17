@@ -82,25 +82,21 @@ const Navbar = () => {
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           to="/"
-          className="flex items-center gap-3 transition-all hover:scale-105 group"
-          onClick={() => {
-            setActive("");
+          className="flex items-center transition-all hover:scale-105 group"
+          onClick={(e) => {
+            e.preventDefault();
+            setActive("Home");
             window.scrollTo({ top: 0, behavior: "smooth" });
+            if (window.history.pushState) {
+              window.history.pushState(null, "", window.location.pathname);
+            }
           }}
         >
-          <div className="relative">
-            <img
-              src={logo}
-              alt="Divyanshu Mishra Logo"
-              className="relative w-10 h-10 object-contain brightness-110"
-            />
-          </div>
-          <p className="text-white text-[20px] font-bold cursor-pointer flex font-mono group-hover:text-gray-300 transition-colors">
-            <span className="text-white">{"<"}</span>
-            dev
-            <span className="text-white">{"/"}</span>
-            <span className="text-gray-400">{">"}</span>
-          </p>
+          <img
+            src={logo}
+            alt="Gaurav Soni Logo"
+            className="h-11 sm:h-12 md:h-[52px] object-contain"
+          />
         </Link>
 
         <ul className="list-none hidden md:flex flex-row gap-8 lg:gap-10 items-center">
@@ -110,9 +106,30 @@ const Navbar = () => {
               className={`${
                 active === link.title ? "text-white" : "text-gray-300"
               } hover:text-white text-[17px] font-mono font-semibold cursor-pointer transition-all duration-300 relative group`}
-              onClick={() => setActive(link.title)}
+              onClick={(e) => {
+                setActive(link.title);
+                if (link.id === "home") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  if (window.history.pushState) {
+                    window.history.pushState(null, "", window.location.pathname);
+                  }
+                }
+              }}
             >
-              <a href={`#${link.id}`} className="flex items-center gap-1">
+              <a
+                href={link.id === "home" ? "#" : `#${link.id}`}
+                className="flex items-center gap-1"
+                onClick={(e) => {
+                  if (link.id === "home") {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    if (window.history.pushState) {
+                      window.history.pushState(null, "", window.location.pathname);
+                    }
+                  }
+                }}
+              >
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity text-white">
                   {">"}
                 </span>
@@ -151,14 +168,18 @@ const Navbar = () => {
           <button
             aria-label={toggle ? "Close menu" : "Open menu"}
             aria-expanded={toggle}
-            className="relative z-50 focus:outline-none focus:ring-2 focus:ring-white rounded-lg p-1 text-white hover:text-gray-300 transition-colors"
+            className="relative z-50 focus:outline-none focus:ring-2 focus:ring-white rounded-lg p-2 text-white bg-black/60 border border-white/30 backdrop-blur-md transition-all hover:bg-black/90 hover:border-white"
             onClick={() => setToggle(!toggle)}
           >
-            <img
-              src={toggle ? close : menu}
-              alt={toggle ? "Close menu" : "Open menu"}
-              className="w-[32px] h-[32px] object-contain cursor-pointer transition-transform hover:scale-110 invert brightness-150"
-            />
+            {toggle ? (
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
@@ -179,14 +200,30 @@ const Navbar = () => {
                   className={`${
                     active === link.title ? "text-white" : "text-gray-300"
                   } font-mono font-semibold text-[17px] cursor-pointer transition-all duration-200 hover:text-white hover:translate-x-2 w-full`}
-                  onClick={() => {
+                  onClick={(e) => {
                     setToggle(false);
                     setActive(link.title);
+                    if (link.id === "home") {
+                      e.preventDefault();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                      if (window.history.pushState) {
+                        window.history.pushState(null, "", window.location.pathname);
+                      }
+                    }
                   }}
                 >
                   <a
-                    href={`#${link.id}`}
+                    href={link.id === "home" ? "#" : `#${link.id}`}
                     className="flex items-center gap-2 py-2"
+                    onClick={(e) => {
+                      if (link.id === "home") {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                        if (window.history.pushState) {
+                          window.history.pushState(null, "", window.location.pathname);
+                        }
+                      }
+                    }}
                   >
                     <span className="text-white">{">"}</span>
                     {link.title}

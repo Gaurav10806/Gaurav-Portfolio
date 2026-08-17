@@ -64,7 +64,7 @@ const ProjectTerminal = ({
           onNext();
         }, 300);
       } else {
-        setOutput((prev) => [...prev, "[error] No next project available", ""]);
+        setOutput((prev) => [...prev, "> End of projects list reached.", ""]);
       }
     } else if (cmd === "help") {
       setOutput((prev) => [

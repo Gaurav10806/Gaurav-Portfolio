@@ -33,20 +33,7 @@ const Hero = () => {
   });
 
   return (
-    <section className="relative w-full min-h-screen mx-auto overflow-hidden bg-[#0B0D12] pt-24 pb-16 flex flex-col justify-center">
-      {/* Layer 2: Subtle animated 3-layer AI Network node background */}
-      <AINetworkCanvas />
-
-      {/* Layer 1 (Farthest): Grid texture & subtle vertical light streaks */}
-      <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none z-[1]"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
-      <div className="absolute inset-0 pointer-events-none z-[1] opacity-[0.03] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-white/20 via-transparent to-transparent" />
+    <section id="home" className="relative w-full min-h-screen mx-auto overflow-hidden bg-transparent pt-24 pb-16 flex flex-col justify-center">
 
       {/* Hero Depth Ambient Radial Glow: Soft blue-violet tint behind left content (8-10% opacity, 350px blur) */}
       <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[350px] bg-gradient-to-tr from-blue-600/10 via-indigo-500/08 to-violet-600/10 rounded-full blur-[140px] pointer-events-none z-[2]" />
@@ -74,7 +61,7 @@ const Hero = () => {
               className="relative mb-6"
             >
               <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold text-[#F8FAFC] tracking-tight leading-[1.05]">
-                Gaurav <span className="animate-soni-sheen font-extrabold">Soni</span>
+                Gaurav <span className="gradient-heading-text font-extrabold">Soni</span>
               </h1>
 
               {/* Thin animated gradient underline beneath Gaurav Soni (~140px width, 4.5s slow pulse) */}
@@ -161,7 +148,7 @@ const Hero = () => {
               className="relative mb-4"
             >
               <h1 className="text-4xl xs:text-5xl font-extrabold text-[#F8FAFC] tracking-tight leading-tight">
-                Gaurav <span className="animate-soni-sheen font-extrabold">Soni</span>
+                Gaurav <span className="gradient-heading-text font-extrabold">Soni</span>
               </h1>
               <div className="w-[110px] h-[2px] mt-2.5 bg-gradient-to-r from-violet-500 via-indigo-400 to-blue-500 rounded-full animate-underline-pulse" />
             </motion.div>

@@ -3,4 +3,6 @@ import BallCanvas from "./Ball";
 import StarsCanvas from "./Stars";
 import CodeSphereCanvas from "./CodeSphere";
 
-export { EarthCanvas, BallCanvas, StarsCanvas, CodeSphereCanvas };
+import GlobalAINetworkCanvas from "./GlobalAINetworkCanvas";
+
+export { EarthCanvas, BallCanvas, StarsCanvas, CodeSphereCanvas, GlobalAINetworkCanvas };

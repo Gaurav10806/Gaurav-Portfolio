@@ -44,7 +44,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
     if (cmd === "help") {
       addOutput([
         "Available commands:",
-        "  contact    - Start contact form Divyanshu Mishra",
+        "  contact    - Start contact form Gaurav Soni",
         "  status     - Show current form data",
         "  reset      - Clear form data",
         "  submit      - Submit contact form",
@@ -218,7 +218,7 @@ const ContactTerminal = ({ onSubmit, isMobile }) => {
           <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
         </div>
         <span className="text-white font-mono text-xs md:text-sm ml-2 truncate">
-          contact@DivyanshuMishra:~/portfolio
+          contact@GauravSoni:~/portfolio
         </span>
       </div>
 

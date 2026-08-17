@@ -4,20 +4,19 @@ import { useEffect } from "react";
 import {
   About,
   Contact,
-  Feedbacks,
   Hero,
   Navbar,
   Tech,
   Works,
-  StarsCanvas,
   BackToTop,
   GithubStats,
 } from "./components";
+import { GlobalAINetworkCanvas } from "./components/canvas";
 import ScratchesOverlay from "./components/ScratchesOverlay";
 
 function AppContent() {
   useEffect(() => {
-    const handleHashChange = (e) => {
+    const handleHashChange = () => {
       const hash = window.location.hash;
       if (hash) {
         const element = document.querySelector(hash);
@@ -36,20 +35,18 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="relative z-0 bg-primary">
+    <div className="relative z-0 bg-[#0B0D12] text-white min-h-screen w-full overflow-x-hidden selection:bg-purple-500/30 selection:text-white">
+      {/* Website-wide Continuous Connected-Node AI Background */}
+      <GlobalAINetworkCanvas />
       <ScratchesOverlay />
-      <div className="bg-hero-pattern bg-cover bg-no-repeat bg-center">
-        <Navbar />
-        <Hero />
-      </div>
+      <Navbar />
+      <Hero />
       <About />
       <Tech />
       <Works />
       <GithubStats />
-      <Feedbacks />
-      <div className="relative z-0">
+      <div className="relative z-10">
         <Contact />
-        <StarsCanvas />
       </div>
       <BackToTop />
     </div>
