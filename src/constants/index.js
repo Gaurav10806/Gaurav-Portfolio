@@ -150,7 +150,7 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "I thought it was impossible to make a website as beautiful as our product, but Divyanshu proved me wrong.",
+      "I thought it was impossible to make a website as beautiful as our product, but Gaurav proved me wrong.",
     name: "Govind Sharma",
     designation: "Full-Stack developer",
     company: "JabRod",
